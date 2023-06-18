@@ -1,5 +1,5 @@
 <?php
-$dirPath = 'get_a_quote';
+$dirPath = 'clientarea';
 $url = $_SERVER['DOCUMENT_ROOT'].'/'.$dirPath.'/config.php';
 require_once $url;
 require_once 'functions.php';

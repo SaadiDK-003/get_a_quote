@@ -1,5 +1,5 @@
 <?php
-$dirPath = 'get_a_quote';
+$dirPath = 'clientarea';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/' . $dirPath . '/core/database.php';
 ?>
 <!DOCTYPE html>
