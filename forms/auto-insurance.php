@@ -48,7 +48,7 @@ include_once '../includes/aside.php';
                                         <input type="text" class="form-control" id="lastName" placeholder="White" required>
                                     </div>
                                     <div class="form-group col-lg-4 col-md-12">
-                                        <label for="middleName">Middle Name (optional) <span class="text-danger">*</span></label>
+                                        <label for="middleName">Middle Name (optional)</label>
                                         <input type="text" class="form-control" id="middleName" placeholder="Jone">
                                     </div>
                                 </div>
