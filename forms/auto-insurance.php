@@ -65,7 +65,7 @@ include_once '../includes/aside.php';
                                     </div>
                                     <div class="form-group col-lg-4 col-md-12">
                                         <label for="dateOfBirth">Date Of Birth <span class="text-danger">*</span></label>
-                                        <input type="text" name="dateOfBirth" class="form-control" id="dateOfBirth">
+                                        <input type="text" name="dateOfBirth" class="form-control" id="dateOfBirth" required>
                                     </div>
                                 </div>
                                 <!-- row 2 end -->
@@ -81,7 +81,7 @@ include_once '../includes/aside.php';
                                     </div>
                                     <div class="form-group col-lg-4 col-md-12">
                                         <label for="drivingLicenseExpirationDate">Driving License Expiration Date <span class="text-danger">*</span></label>
-                                        <input type="text" name="drivingLicenseExpirationDate" class="form-control" id="drivingLicenseExpirationDate">
+                                        <input type="text" name="drivingLicenseExpirationDate" class="form-control" id="drivingLicenseExpirationDate" required>
                                     </div>
                                 </div>
                                 <!-- row 3 end -->
@@ -220,7 +220,7 @@ include_once '../includes/aside.php';
                                 <div class="row married mt-2 d-none">
                                     <div class="form-group col-lg-4 col-md-12">
                                         <label for="spouseName">Spouse Information <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="spouseName" placeholder="Enter Your Spouse Name" required>
+                                        <input type="text" class="form-control" id="spouseName" placeholder="Enter Your Spouse Name">
                                     </div>
                                 </div>
                                 <!-- row 5 end -->
@@ -268,9 +268,11 @@ include_once '../includes/aside.php';
             if ($(this).is(':checked')) {
                 $('.married').removeClass('d-none');
                 $('.married-status').text('| Yes');
+                $('input[id="spouseName"]').attr('required','required');
             } else {
                 $('.married').addClass('d-none');
                 $('.married-status').text('| No');
+                $('input[id="spouseName"]').removeAttr('required');
             }
         });
     });
