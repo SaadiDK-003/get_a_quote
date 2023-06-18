@@ -45,19 +45,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="Insurance-form.php" class="nav-link">
+                            <a href="<?= site_url ?>forms/home-insurance.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Home Insurance</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="forms/auto-insurance.php" class="nav-link">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Auto Insurance</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="Insurance-form.php" class="nav-link">
+                            <a href="<?= site_url ?>forms/business-insurance.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Business Insurance</p>
                             </a>
