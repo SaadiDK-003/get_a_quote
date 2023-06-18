@@ -33,9 +33,9 @@
 <script src="<?=site_url?>plugins/raphael/raphael.min.js"></script>
 <script src="<?=site_url?>plugins/jquery-mapael/jquery.mapael.min.js"></script>
 <script src="<?=site_url?>plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="<?=site_url?>plugins/chart.js/Chart.min.js"></script>
-
+<!-- ChartJS 
+<script src="< ?=site_url?>plugins/chart.js/Chart.min.js"></script>
+-->
 <!-- DataTables  & Plugins -->
 <script src="<?=site_url?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?=site_url?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -49,18 +49,21 @@
 <script src="<?=site_url?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?=site_url?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?=site_url?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-
+<!-- InputMask -->
+<script src="<?=site_url?>plugins/moment/moment.min.js"></script>
+<script src="<?=site_url?>plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- dateRangePicker -->
+<script src="<?=site_url?>plugins/daterangepicker/daterangepicker.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?=site_url?>dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="<?=site_url?>dist/js/pages/dashboard2.js"></script>
-
+<!-- AdminLTE dashboard demo (This is only for demo purposes) 
+<script src="< ?=site_url?>dist/js/pages/dashboard2.js"></script>
+-->
 <script>
-$(function () {
+$(document).ready(function(){
   bsCustomFileInput.init();
-});
-$(function () {
-    $("#example1").DataTable({
+
+  $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
@@ -73,7 +76,8 @@ $(function () {
       "autoWidth": false,
       "responsive": true,
     });
-  });
+    
+});
 </script>
 </body>
 </html>

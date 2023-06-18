@@ -1,6 +1,6 @@
 /* global Chart:false */
 
-$(function () {
+$(document).ready(function(){
   'use strict'
 
   /* ChartJS
