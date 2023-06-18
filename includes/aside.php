@@ -74,19 +74,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="list.php" class="nav-link">
+                            <a href="<?= site_url ?>list/list.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Home Insurance</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="list.php" class="nav-link">
+                            <a href="<?= site_url ?>list/list.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Auto Insurance</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="list.php" class="nav-link">
+                            <a href="<?= site_url ?>list/list.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Business Insurance</p>
                             </a>
@@ -94,25 +94,25 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="list.php" class="nav-link">
+                    <a href="<?= site_url ?>list/list.php" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Invoice(s)</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="list.php" class="nav-link">
+                    <a href="<?= site_url ?>list/list.php" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Conversation</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="list.php" class="nav-link">
+                    <a href="<?= site_url ?>list/list.php" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Octo Team</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="list.php" class="nav-link">
+                    <a href="<?= site_url ?>list/list.php" class="nav-link">
                         <i class="nav-icon fas fa-edit"></i>
                         <p>Logout</p>
                     </a>
