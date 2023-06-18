@@ -1,5 +1,6 @@
 <?php
-require_once 'core/database.php';
+$dirPath = 'get_a_quote';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/' . $dirPath . '/core/database.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +15,9 @@ require_once 'core/database.php';
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="<?= site_url ?>plugins/fontawesome-free/css/all.min.css">
     <!-- DataTables -->
-    <link rel="stylesheet" href="<?=site_url?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?=site_url?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="<?=site_url?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= site_url ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= site_url ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="<?= site_url ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?= site_url ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->

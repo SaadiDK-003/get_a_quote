@@ -51,7 +51,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="Insurance-form.php" class="nav-link">
+                            <a href="forms/auto-insurance.php" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Auto Insurance</p>
                             </a>
