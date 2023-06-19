@@ -30,10 +30,121 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= site_url ?>" class="nav-link">
-                        <i class="fas fa-home nav-icon"></i>
-                        <p>Customer</p>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Customers
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/home-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add new Customer</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Customer List</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Accounting
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Transactions</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/home-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>New Deposit</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Invoices</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>New Invoice</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>New Quote</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Quotes</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Paid Invoices</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Unpaid Invoices</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-edit"></i>
+                        <p>
+                            Accounting
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Transactions</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/home-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>New Deposit</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Paid Invoices</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Unpaid Invoices</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
