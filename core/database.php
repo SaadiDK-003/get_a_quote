@@ -2,7 +2,7 @@
 session_start();
 $host = $_SERVER['HTTP_HOST'];
 if ($host == 'localhost') {
-    $dirPath = 'get_a_quote/';
+    $dirPath = 'get_a_quote';
 } else {
     $dirPath = 'panel';
 }
