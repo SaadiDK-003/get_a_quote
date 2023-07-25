@@ -1,6 +1,11 @@
 <?php
 session_start();
-$dirPath = 'get_a_quote';
+$host = $_SERVER['HTTP_HOST'];
+if ($host == 'localhost') {
+    $dirPath = 'get_a_quote/';
+} else {
+    $dirPath = 'panel';
+}
 require_once $_SERVER['DOCUMENT_ROOT'].'/'.$dirPath.'/config.php';
 require_once 'functions.php';
 $db = mysqli_connect(HOST,USER,PWD,DB);
