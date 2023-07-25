@@ -1,8 +1,8 @@
 <?php
 // Site URL
 $host = $_SERVER['HTTP_HOST'];
-$dirPath = 'get_a_quote/';
 if ($host == 'localhost') {
+    $dirPath = 'get_a_quote/';
     $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://".$host."/".$dirPath;
     // Database Credentials LOCAL
     define('HOST', 'localhost');
@@ -10,6 +10,7 @@ if ($host == 'localhost') {
     define('PWD', '');
     define('DB', 'get_a_quote');
 } else {
+    $dirPath = 'panel/';
     $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://".$host."/".$dirPath;
     // Database Credentials LIVE
     define('HOST', 'localhost');
