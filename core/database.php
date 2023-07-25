@@ -1,6 +1,7 @@
 <?php
 session_start();
 $host = $_SERVER['HTTP_HOST'];
+die($host);
 if ($host == 'localhost') {
     $dirPath = 'get_a_quote';
 } else {
