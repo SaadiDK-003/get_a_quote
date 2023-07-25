@@ -115,7 +115,7 @@ if (!is_loggedin()) {
                                         <td><?=$row->petName?></td>
                                         <td><?=$row->charges?></td>
                                         <td><?=$row->services?></td>
-                                        <td><?=$row->status?></td>
+                                        <td><span class="<?= ($row->status == 'active') ? 'btn btn-success' : 'btn btn-warning' ?>"><?=$row->status?></span></td>
                                         <td><a data-id="<?=$row->pID?>" class="btn btn-danger btn-delete">Remove</a></td>
                                     </tr>
                                 <?php } ?>

@@ -76,4 +76,12 @@ if(isset($_POST['cancelReq'])) {
     }
 }
 
+if(isset($_POST['acceptReq'])) {
+    $acceptReq = $_POST['acceptReq'];
+    $sql = $db->query("UPDATE `pet_sitter` SET `status`='active' WHERE `id`='$acceptReq'");
+    if($sql) {
+        echo 'Updated Successfully!';
+    }
+}
+
 ?>

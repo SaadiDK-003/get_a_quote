@@ -94,5 +94,18 @@ if (!is_loggedin()) {
             })
         });
 
+        $('.btn-accept').on('click', function(e){
+            e.preventDefault();
+            let id = $(this).data('id');
+            $.ajax({
+                url:'ajax/requests.php',
+                method:'post',
+                data:{acceptReq:id},
+                success:function(res){
+                    setTimeout(function(){location.reload()},1800);
+                }
+            })
+        });
+
     });
 </script>
