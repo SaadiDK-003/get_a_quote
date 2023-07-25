@@ -92,6 +92,7 @@ if (!is_loggedin()) {
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">My Services</h3>
+                            <h3 class="card-title position-absolute text-danger h3 msg-table" style="left:50%;transform:translateX(-50%)"></h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -115,7 +116,7 @@ if (!is_loggedin()) {
                                         <td><?=$row->charges?></td>
                                         <td><?=$row->services?></td>
                                         <td><?=$row->status?></td>
-                                        <td><a data-id="<?=$row->pID?>" class="btn btn-danger">Remove</a></td>
+                                        <td><a data-id="<?=$row->pID?>" class="btn btn-danger btn-delete">Remove</a></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -187,9 +188,23 @@ if (!is_loggedin()) {
             data:data,
             success: function(res){
                 $('.msg').html(res);
+                setTimeout(function(){location.reload()},1800);
             }
         })
         });
 
+        $('.btn-delete').on('click', function(e){
+            e.preventDefault();
+            let id = $(this).data('id');
+            $.ajax({
+                url: 'ajax/requests.php',
+                method:'post',
+                data:{delete_sitter:id},
+                success: function(res){
+                    $('.msg-table').html(res);
+                    setTimeout(function(){location.reload()},1800);
+                }
+            });
+        });
     });
 </script>

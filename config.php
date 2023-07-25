@@ -7,7 +7,7 @@ if ($host == 'localhost') {
     // Database Credentials LOCAL
     define('HOST', 'localhost');
     define('USER', 'root');
-    define('PWD', '');
+    define('PWD', 'admin123');
     define('DB', 'get_a_quote');
 } else {
     $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://".$host."/".$dirPath;

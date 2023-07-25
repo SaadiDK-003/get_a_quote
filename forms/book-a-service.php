@@ -42,25 +42,17 @@ if (!is_loggedin()) {
                         <!-- /.card-header -->
 
                         <div class="row text-center p-3">
-                            <?php
-                                $sitter_data = $db->query("CALL `list_pet_sitters`()");
-                                while($info = mysqli_fetch_object($sitter_data)):
-                            ?>
-                            <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
-                                <div class="content border p-2">
-                                    <div class="logo">
-                                        <img src="https://picsum.photos/200" class="rounded-circle w-25" alt="img">
-                                    </div>
-                                    <div class="info">
-                                        <h3><?=$info->sitterName?></h3>
-                                        <p>$<?=$info->charges?></p>
-                                        <p><?=$info->services?></p>
-                                    </div>
-                                    <a href="" class="btn btn-primary btn-md">Book</a>
-                                </div>
+                            <div class="col-12 mb-3 text-left">
+                                <label for="animal">Select Pet</label>
+                                <select name="select_pet" id="select_pet" class="form-control">
+                                    <option value="" selected hidden>Select Pet</option>
+                                    <option value="Cat">Cat</option>
+                                    <option value="Dog">Dog</option>
+                                    <option value="Mouse">Mouse</option>
+                                </select>
                             </div>
-                            <?php endwhile; ?>
                         </div>
+                        <div class="row text-center p-3 render_data"></div>
 
                     </div>
                     <!-- /.card -->
@@ -75,3 +67,22 @@ if (!is_loggedin()) {
 <!-- /.content-wrapper -->
 
 <?php include_once '../includes/footer.php'; ?>
+
+<script>
+    $(document).ready(function() {
+        
+        $('#select_pet').on('change', function(e) {
+            let pName = $(this).val();
+            $.ajax({
+                url: 'ajax/requests.php',
+                method: 'post',
+                data: {
+                    pName:pName 
+                },
+                success: function(res) {
+                    $('.render_data').html(res);
+                }
+            })
+        });
+    });
+</script>

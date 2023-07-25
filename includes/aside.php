@@ -90,7 +90,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?= site_url ?>forms/sitter-services-list.php" class="nav-link">
                                 <i class=""></i>
                                 <p>Accept/Reject service request</p>
                             </a>
@@ -121,7 +121,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?=site_url?>forms/book-a-service.php" class="nav-link">
                                 <i class=""></i>
                                 <p>Book a service for your Pet</p>
                             </a>
