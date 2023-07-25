@@ -14,7 +14,7 @@
                 <img src="<?= site_url ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block"><?= $data->username ?></a>
+                <a href="#" class="d-block"><?= $username ?></a>
             </div>
         </div>
 
@@ -29,205 +29,142 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <?php if ($role == 'admin') { ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-circle text-danger"></i>
+                            <p>
+                                Admin Panel
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#<?= site_url ?>forms/" class="nav-link">
+                                    <i class=""></i>
+                                    <p>Admin Services</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>forms/pet-sitter.php" class="nav-link">
+                                    <i class=""></i>
+                                    <p>Pet Sitter</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#<?= site_url ?>forms/" class="nav-link">
+                                    <i class=""></i>
+                                    <p>Pet Owner</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class=""></i>
+                                    <p>View Services</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class=""></i>
+                                    <p>Accounts</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                <?php } ?>
+                <?php if($role == 'sitter') { ?>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                        <i class="nav-icon fas fa-tree"></i>
                         <p>
-                            Customers
+                            Pet Sitter
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= site_url ?>forms/home-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add new Customer</p>
+                            <a href="<?= site_url ?>forms/pet-sitter.php" class="nav-link">
+                                <i class=""></i>
+                                <p>Services (Add/View/Delete)</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Customer List</p>
+                            <a href="#" class="nav-link">
+                                <i class=""></i>
+                                <p>Accept/Reject service request</p>
                             </a>
                         </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            Accounting
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                            <a href="#" class="nav-link">
+                                <i class=""></i>
+                                <p>View Services (Active/Inactive)</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class=""></i>
                                 <p>View Transactions</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/home-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>New Deposit</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Invoices</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>New Invoice</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>New Quote</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>View Quotes</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Paid Invoices</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Unpaid Invoices</p>
-                            </a>
-                        </li>
                     </ul>
                 </li>
+                <?php } ?>
+                <?php if($role == 'owner') { ?>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                        <i class="nav-icon fas fa-tree"></i>
                         <p>
-                            Accounting
+                            Pet Owner
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                            <a href="#" class="nav-link">
+                                <i class=""></i>
+                                <p>Book a service for your Pet</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class=""></i>
+                                <p>View previous services availed</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class=""></i>
                                 <p>View Transactions</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/home-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>New Deposit</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Paid Invoices</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Unpaid Invoices</p>
-                            </a>
-                        </li>
                     </ul>
                 </li>
+                <?php } ?>
+
+                <?php if ($role == 'admin') { ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-circle text-info"></i>
+                            <p>Register new Pet Owner</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-circle text-info"></i>
+                            <p>Register new Pet Sitter</p>
+                        </a>
+                    </li>
+                <?php } ?>
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>
-                            Request a Quote
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/home-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Home Insurance</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/auto-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Auto Insurance</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/business-insurance.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Business Insurance</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
-                        <p>
-                            Form (Submitted)
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>list/list.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Home Insurance</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>list/list.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Auto Insurance</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>list/list.php" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Business Insurance</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= site_url ?>list/list.php" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>Invoice(s)</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= site_url ?>list/list.php" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>Conversation</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= site_url ?>list/list.php" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
-                        <p>Octo Team</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= site_url ?>list/list.php" class="nav-link">
-                        <i class="nav-icon fas fa-edit"></i>
+                    <a href="<?= site_url ?>logout.php" class="nav-link">
+                        <i class="nav-icon far fa-circle text-info"></i>
                         <p>Logout</p>
                     </a>
                 </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

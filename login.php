@@ -1,19 +1,56 @@
-<!-- Control Sidebar -->
-<aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+<?php
+// require_once 'config.php';
+require_once 'core/database.php';
+require_once 'includes/head.php';
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; <?=date('Y')?> <a href="#!">Strangers</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.2.0
+$msg = '';
+
+if(isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $pwd = $_POST['password'];
+    $loginCheck = login($email,$pwd,$db);
+    if($loginCheck === true) {
+        ?><script>window.location.href = "index.php";</script><?php
+    } else {
+        $msg = 'Username or Password is incorrect!';
+    }
+}
+
+?>
+<body>
+
+
+<div class="container">
+    <div class="row vh-100 align-items-center justify-content-center">
+        <div class="col-lg-4 col-md-6">
+            <h5 class="text-center text-danger mb-3 font-weight-bold"><?=$msg?></h5>
+            <h3 class="text-center mb-3 font-weight-bold">Pet Panel | Login</h3>
+            <form id="login-form" action="" method="post">
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" required>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="password" required>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary w-100" name="submit" id="login-btn">Login</button>
+                    </div>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-12 mt-3 text-center">
+                    <p class="text-bold">Need to Register ?</p>
+                    <a href="register.php" class="btn btn-info btn-md w-100">Register</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </footer>
 </div>
-<!-- ./wrapper -->
+
+
 
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
@@ -59,28 +96,16 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) 
 <script src="< ?=site_url?>dist/js/pages/dashboard2.js"></script>
 -->
-<script>
-$(document).ready(function(){
-  bsCustomFileInput.init();
 
-  $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": true,
-      "searching": true,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-      "columnDefs": [
-    { "width": "35%", "targets": 2 }
-    ]
+
+<script>
+    $(document).ready(function(){
+        // $('#login-form').on('submit', function(e){
+        //     e.preventDefault();
+            
+        // });
     });
-    
-});
 </script>
+
 </body>
 </html>

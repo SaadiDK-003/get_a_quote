@@ -1,6 +1,10 @@
 <?php
-include_once './includes/header.php';
-include_once './includes/aside.php';
+require_once 'core/database.php';
+if(!is_loggedin()){
+    ?><script>window.location.href = "login.php";</script><?php
+}
+include_once 'includes/header.php';
+include_once 'includes/aside.php';
 ?>
 
   <!-- Content Wrapper. Contains page content -->
