@@ -7,15 +7,15 @@ if ($host == 'localhost') {
     // Database Credentials LOCAL
     define('HOST', 'localhost');
     define('USER', 'root');
-    define('PWD', 'admin123');
+    define('PWD', '');
     define('DB', 'get_a_quote');
 } else {
     $url = (empty($_SERVER['HTTPS']) ? 'http' : 'https') . "://".$host."/".$dirPath;
     // Database Credentials LIVE
     define('HOST', 'localhost');
-    define('USER', 'octoinsurance_admin');
-    define('PWD', 'O3x6q6;tFPy2');
-    define('DB', 'octoinsurance_quote');
+    define('USER', 'tamecare_admin');
+    define('PWD', 'f_aPrl2)Fc$D');
+    define('DB', 'tamecare_panel');
 }
 
 // Global Usage Variables
