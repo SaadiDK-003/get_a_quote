@@ -73,73 +73,73 @@
                     </li>
 
                 <?php } ?>
-                <?php if($role == 'sitter') { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
-                        <p>
-                            Pet Sitter
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/pet-sitter.php" class="nav-link">
-                                <i class=""></i>
-                                <p>Services (Add/View/Delete)</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= site_url ?>forms/sitter-services-list.php" class="nav-link">
-                                <i class=""></i>
-                                <p>Accept/Reject service request</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class=""></i>
-                                <p>View Services (Active/Inactive)</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class=""></i>
-                                <p>View Transactions</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <?php if ($role == 'sitter') { ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                Pet Sitter
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>forms/pet-sitter.php" class="nav-link">
+                                    <i class=""></i>
+                                    <p>Services (Add/View/Delete)</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>forms/sitter-services-list.php" class="nav-link">
+                                    <i class=""></i>
+                                    <p>Accept/Reject service request</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class=""></i>
+                                    <p>View Services (Active/Inactive)</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class=""></i>
+                                    <p>View Transactions</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
-                <?php if($role == 'owner') { ?>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
-                        <p>
-                            Pet Owner
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="<?=site_url?>forms/book-a-service.php" class="nav-link">
-                                <i class=""></i>
-                                <p>Book a service for your Pet</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?=site_url?>forms/owner_services_accepted.php" class="nav-link">
-                                <i class=""></i>
-                                <p>View previous services availed</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class=""></i>
-                                <p>View Transactions</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <?php if ($role == 'owner') { ?>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-tree"></i>
+                            <p>
+                                Pet Owner
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>forms/book-a-service.php" class="nav-link">
+                                    <i class=""></i>
+                                    <p>Book a service for your Pet</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="<?= site_url ?>forms/owner_services_accepted.php" class="nav-link">
+                                    <i class=""></i>
+                                    <p>View previous services availed</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class=""></i>
+                                    <p>View Transactions</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 <?php } ?>
 
                 <?php if ($role == 'admin') { ?>
@@ -157,7 +157,12 @@
                         </a>
                     </li>
                 <?php } ?>
-
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon far fa-circle text-info"></i>
+                        <p>Profile (View/Edit)</p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="<?= site_url ?>logout.php" class="nav-link">
                         <i class="nav-icon far fa-circle text-info"></i>
