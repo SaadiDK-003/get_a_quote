@@ -40,7 +40,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#<?= site_url ?>forms/" class="nav-link">
+                                <a href="<?= site_url ?>forms/admin_approve.php" class="nav-link">
                                     <i class=""></i>
                                     <p>Admin Services</p>
                                 </a>
@@ -127,7 +127,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="<?=site_url?>forms/owner_services_accepted.php" class="nav-link">
                                 <i class=""></i>
                                 <p>View previous services availed</p>
                             </a>

@@ -54,7 +54,7 @@ if (!is_loggedin()) {
                                             <h3><?= $info->pet_name ?></h3>
                                             <p>$<?= $info->charges ?></p>
                                         </div>
-                                        <?php if ($info->status == 'inactive') : ?>
+                                        <?php if ($info->status != 'active') : ?>
                                             <a href="#!" data-id="<?= $info->id ?>" class="btn btn-success btn-md btn-accept">Accept</a>
                                             <a href="#!" data-id="<?= $info->id ?>" class="btn btn-danger btn-md btn-denied">Denied</a>
                                         <?php else : ?>

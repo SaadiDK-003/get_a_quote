@@ -115,8 +115,14 @@ if (!is_loggedin()) {
                                         <td><?=$row->petName?></td>
                                         <td><?=$row->charges?></td>
                                         <td><?=$row->services?></td>
-                                        <td><span class="<?= ($row->status == 'active') ? 'btn btn-success' : 'btn btn-warning' ?>"><?=$row->status?></span></td>
-                                        <td><a data-id="<?=$row->pID?>" class="btn btn-danger btn-delete">Remove</a></td>
+                                        <td><span class="<?= ($row->status == 'approve' || $row->status == 'active') ? 'btn btn-success' : 'btn btn-warning' ?>"><?=$row->status?></span></td>
+                                        <td>
+                                            <?php if($row->status == 'pending') { ?>
+                                                <a data-id="<?=$row->pID?>" class="btn btn-danger btn-delete">Remove</a>
+                                            <?php } else{ ?>
+                                            -
+                                            <?php } ?>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -149,36 +155,7 @@ if (!is_loggedin()) {
 <?php include_once '../includes/footer.php'; ?>
 <script>
     $(document).ready(function() {
-        $('input[name="dateOfBirth"]').daterangepicker({
-            "singleDatePicker": true,
-            "showDropdowns": true,
-            "minYear": 1933,
-            "maxYear": 2007,
-            "startDate": "06/12/2007"
-        }, function(start, end, label) {
-            console.log(moment().diff(start, 'days'));
-            var years = moment().diff(start, 'years');
-            console.log("You are " + years + " years old!");
-        });
-        $('input[name="drivingLicenseExpirationDate"]').daterangepicker({
-            "singleDatePicker": true,
-            "showDropdowns": true,
-            "minYear": 2013,
-            "maxYear": 2033
-        }, function(start, end, label) {});
-
-        $('input[id="isMarried"]').on('change', function() {
-            if ($(this).is(':checked')) {
-                $('.married').removeClass('d-none');
-                $('.married-status').text('| Yes');
-                $('input[id="spouseName"]').attr('required', 'required');
-            } else {
-                $('.married').addClass('d-none');
-                $('.married-status').text('| No');
-                $('input[id="spouseName"]').removeAttr('required');
-            }
-        });
-
+       
         $('#pet_sitter').on('submit', function(e){
             e.preventDefault();
             let data = $(this).serialize();

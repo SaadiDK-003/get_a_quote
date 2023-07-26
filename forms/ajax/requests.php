@@ -27,10 +27,10 @@ while ($info = mysqli_fetch_object($sitter_data)) :
                 <h3><?= $info->sitterName ?></h3>
                 <p>$<?= $info->charges ?></p>
             </div>
-            <?php if ($info->ownerId != $id && $info->status == 'inactive') { ?>
+            <?php if ($info->ownerId != $id && $info->status == 'approve') { ?>
                 <a href="#!" data-id="<?= $info->id ?>" class="btn btn-primary btn-md btn-info">info</a>
                 <a href="#!" data-id="<?= $info->id ?>" class="btn btn-primary btn-md btn-booking">Book</a>
-            <?php } else if($info->ownerId == $id && $info->status == 'inactive') {  ?>
+            <?php } else if($info->ownerId == $id && $info->status == 'approve') {  ?>
                 <a href="#!" data-id="<?= $info->id ?>" class="btn btn-primary btn-md btn-info">info</a>
                 <a href="#!" class="btn btn-secondary btn-md">Requested</a>
             <?php } else { ?>
@@ -45,7 +45,7 @@ while ($info = mysqli_fetch_object($sitter_data)) :
     $('.btn-booking').on('click', function(e) {
             let id = $(this).data('id');
             $.ajax({
-                url: 'ajax/requests.php',
+                url: '<?=site_url?>forms/ajax/requests.php',
                 method: 'post',
                 data: {
                     pID: id
@@ -71,6 +71,16 @@ if(isset($_POST['delete_sitter'])) {
 if(isset($_POST['cancelReq'])) {
     $cancelID = $_POST['cancelReq'];
     $sql = $db->query("UPDATE `pet_sitter` SET `owner_id`='0' WHERE `id`='$cancelID'");
+    if($sql) {
+        echo 'Updated Successfully!';
+    }
+}
+
+
+
+if(isset($_POST['approve_sitter'])) {
+    $approve_sitter = $_POST['approve_sitter'];
+    $sql = $db->query("UPDATE `pet_sitter` SET `status`='approve' WHERE `id`='$approve_sitter'");
     if($sql) {
         echo 'Updated Successfully!';
     }
