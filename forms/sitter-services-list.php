@@ -48,14 +48,15 @@ if (!is_loggedin()) {
                                 <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
                                     <div class="content border p-2">
                                         <div class="logo">
-                                            <img src="https://picsum.photos/200" class="rounded-circle w-25" alt="img">
+                                            <img src="https://picsum.photos/20<?=$info->id?>" class="rounded-circle w-25" alt="img">
                                         </div>
                                         <div class="info">
                                             <h3><?= $info->pet_name ?></h3>
                                             <p>$<?= $info->charges ?></p>
+                                            <p>days: <?= $info->days ?></p>
                                         </div>
                                         <?php if ($info->status != 'active') : ?>
-                                            <a href="#!" data-id="<?= $info->id ?>" class="btn btn-success btn-md btn-accept">Accept</a>
+                                            <a href="#!" data-days="<?=$info->days?>" data-id="<?= $info->id ?>" class="btn btn-success btn-md btn-accept">Accept</a>
                                             <a href="#!" data-id="<?= $info->id ?>" class="btn btn-danger btn-md btn-denied">Denied</a>
                                         <?php else : ?>
                                             <a href="#!" class="btn btn-success btn-md">Accepted</a>
@@ -93,15 +94,17 @@ if (!is_loggedin()) {
                 }
             })
         });
-
+        
         $('.btn-accept').on('click', function(e){
             e.preventDefault();
             let id = $(this).data('id');
+            let days = $(this).data('days');
             $.ajax({
                 url:'ajax/requests.php',
                 method:'post',
-                data:{acceptReq:id},
+                data:{acceptReq:id,days:days},
                 success:function(res){
+                    // console.log(res);
                     setTimeout(function(){location.reload()},1800);
                 }
             })

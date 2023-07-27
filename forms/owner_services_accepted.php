@@ -46,6 +46,8 @@ if (!is_loggedin()) {
                                         <th>Sitter Name</th>
                                         <th>Pet Name</th>
                                         <th>Services Offer</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
                                         <th>Charges per Day</th>
                                         <th>Status</th>
                                     </tr>
@@ -59,6 +61,8 @@ if (!is_loggedin()) {
                                             <td><?= $row->sitterName ?></td>
                                             <td><?= $row->petName ?></td>
                                             <td><?= $row->services ?></td>
+                                            <td><?= $row->startDate ?></td>
+                                            <td><?= $row->endDate ?></td>
                                             <td><?= $row->charges ?></td>
                                             <td><span class="btn btn-success"><?= $row->status ?></span></td>
                                         </tr>
@@ -69,6 +73,8 @@ if (!is_loggedin()) {
                                         <th>Sitter Name</th>
                                         <th>Pet Name</th>
                                         <th>Services Offer</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
                                         <th>Charges per Day</th>
                                         <th>Status</th>
                                     </tr>
