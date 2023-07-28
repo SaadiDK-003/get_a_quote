@@ -40,6 +40,11 @@ if (!is_loggedin()) {
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                        <?php
+
+check_end_date($db);
+
+?>
                             <table id="example2" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
@@ -49,6 +54,7 @@ if (!is_loggedin()) {
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Charges per Day</th>
+                                        <th>Total Charges</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -63,8 +69,9 @@ if (!is_loggedin()) {
                                             <td><?= $row->services ?></td>
                                             <td><?= $row->startDate ?></td>
                                             <td><?= $row->endDate ?></td>
-                                            <td><?= $row->charges ?></td>
-                                            <td><span class="btn btn-success"><?= $row->status ?></span></td>
+                                            <td>$<?= $row->charges ?></td>
+                                            <td>$<?=($row->days * $row->charges)?></td>
+                                            <td><span class="btn <?=($row->status == 'active') ? 'btn-success' : 'btn-danger' ?>"><?= $row->status ?></span></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -76,6 +83,7 @@ if (!is_loggedin()) {
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Charges per Day</th>
+                                        <th>Total Charges</th>
                                         <th>Status</th>
                                     </tr>
                                 </tfoot>

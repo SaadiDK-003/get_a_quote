@@ -18,3 +18,10 @@ function login($email, $pwd, $db) {
         return false;
     }
 }
+
+function check_end_date($db) {
+    $currentDate = date('Y-m-d');
+    // echo $currentDate;
+    // it will be update to expire
+    $db->query("UPDATE `pet_sitter` SET `status`='expired' WHERE DATE(end_date) = '$currentDate'");
+}
