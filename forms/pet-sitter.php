@@ -70,6 +70,7 @@ if (!is_loggedin()) {
                             </div>
                             <!-- /.card-body -->
                             <input type="hidden" name="p" value="pet_sitter_service">
+                            <input type="hidden" name="edit_id" value="">
                             <div class="card-footer text-right">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
@@ -107,24 +108,24 @@ if (!is_loggedin()) {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php
-                                $getData = $db->query("CALL `pet_sitter_list`($id)");
-                                while($row = mysqli_fetch_object($getData)){
-                                ?>
-                                    <tr>
-                                        <td><?=$row->petName?></td>
-                                        <td><?=$row->charges?></td>
-                                        <td><?=$row->services?></td>
-                                        <td><span class="<?= ($row->status == 'approve' || $row->status == 'active') ? 'btn btn-success' : 'btn btn-warning' ?>"><?=$row->status?></span></td>
-                                        <td>
-                                            <?php if($row->status == 'pending') { ?>
-                                                <a data-id="<?=$row->pID?>" class="btn btn-danger btn-delete">Remove</a>
-                                            <?php } else{ ?>
-                                            -
-                                            <?php } ?>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
+                                    <?php
+                                    $getData = $db->query("CALL `pet_sitter_list`($id)");
+                                    while ($row = mysqli_fetch_object($getData)) {
+                                    ?>
+                                        <tr>
+                                            <td><?= $row->petName ?></td>
+                                            <td><?= $row->charges ?></td>
+                                            <td><?= $row->services ?></td>
+                                            <td><span class="<?= ($row->status == 'approve' || $row->status == 'active') ? 'btn btn-success' : 'btn btn-warning' ?>"><?= $row->status ?></span></td>
+                                            <td>
+                                                <?php if ($row->status == 'pending') { ?>
+                                                    <a data-id="<?= $row->pID ?>" class="btn btn-info btn-edit">Edit</a> | <a data-id="<?= $row->pID ?>" class="btn btn-danger btn-delete">Remove</a>
+                                                <?php } else { ?>
+                                                    -
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -155,31 +156,57 @@ if (!is_loggedin()) {
 <?php include_once '../includes/footer.php'; ?>
 <script>
     $(document).ready(function() {
-       
-        $('#pet_sitter').on('submit', function(e){
+
+        $('#pet_sitter').on('submit', function(e) {
             e.preventDefault();
             let data = $(this).serialize();
             $.ajax({
-            url: 'data-submit.php',
-            method:'post',
-            data:data,
-            success: function(res){
-                $('.msg').html(res);
-                setTimeout(function(){location.reload()},1800);
-            }
-        })
+                url: 'data-submit.php',
+                method: 'post',
+                data: data,
+                success: function(res) {
+                    $('.msg').html(res);
+                    setTimeout(function() {
+                        location.reload()
+                    }, 1800);
+                }
+            })
         });
 
-        $('.btn-delete').on('click', function(e){
+        $('.btn-edit').on('click', function(e) {
             e.preventDefault();
             let id = $(this).data('id');
             $.ajax({
                 url: 'ajax/requests.php',
-                method:'post',
-                data:{delete_sitter:id},
-                success: function(res){
+                method: 'post',
+                data: {
+                    edit_sitter_info: id
+                },
+                success: function(res) {
+                    let data = JSON.parse(res);
+                    $(`select[name="pet_name"] option[value=${data.pet_name}]`).attr('selected', true);
+                    $('input[name="charges"]').val(data.charges);
+                    $('input[name="services_offer"]').val(data.services_offer);
+                    $('input[name="edit_id"]').val(data.id);
+                    console.log(data);
+                }
+            });
+        });
+
+        $('.btn-delete').on('click', function(e) {
+            e.preventDefault();
+            let id = $(this).data('id');
+            $.ajax({
+                url: 'ajax/requests.php',
+                method: 'post',
+                data: {
+                    delete_sitter: id
+                },
+                success: function(res) {
                     $('.msg-table').html(res);
-                    setTimeout(function(){location.reload()},1800);
+                    setTimeout(function() {
+                        location.reload()
+                    }, 1800);
                 }
             });
         });
