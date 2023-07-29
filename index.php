@@ -72,7 +72,11 @@ if (!is_loggedin()) {
                                             <?php } ?>
                                             "><?= $row->status ?></span></td>
                                                 <?php if ($row->status != 'active') : ?>
-                                                    <td><a data-id="<?= $row->pID ?>" class="btn btn-success btn-sm btn-approve">Approve</a> | <a data-id="<?= $row->pID ?>" class="btn btn-sm btn-warning btn-rej">Rejected</a> | <a data-id="<?= $row->pID ?>" class="btn btn-sm btn-danger btn-delete">Remove</a></td>
+                                                    <td><a data-id="<?= $row->pID ?>" class="btn btn-success btn-sm btn-approve">Approve</a> <!--| 
+                                                    <a data-id="< ?= $row->pID ?>" class="btn btn-sm btn-warning btn-rej">Rejected</a> -->
+                                                        |
+                                                        <a data-id="<?= $row->pID ?>" class="btn btn-sm btn-danger btn-delete">Remove</a>
+                                                    </td>
                                                 <?php else : ?>
                                                     <td>-</td>
                                                 <?php endif; ?>
@@ -119,7 +123,7 @@ if (!is_loggedin()) {
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example2" class="table table-bordered table-hover text-center">
+                                <table id="example3" class="table table-bordered table-hover text-center">
                                     <thead>
                                         <tr>
                                             <th>Service Holder</th>

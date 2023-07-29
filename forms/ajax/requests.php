@@ -28,7 +28,7 @@ if (isset($_POST['pName'])) {
                     <h5><strong>Charges: </strong>$<?= $info->charges ?></h5>
                 </div>
                 <?php if ($info->ownerId != $id && $info->status == 'approve') { ?>
-                    <a href="#!" data-id="<?= $info->id ?>" class="btn btn-info btn-md btn-sitter-info">info</a>
+                    <a href="#!" data-sid="<?= $info->sid ?>" class="btn btn-info btn-md btn-sitter-info" data-toggle="modal" data-target="#modal-default">info</a>
                     <div class="btns">
                         <div class="days">
                             <span>Days:</span>
@@ -41,16 +41,38 @@ if (isset($_POST['pName'])) {
                         <a href="#!" data-id="<?= $info->id ?>" class="btn btn-primary btn-md btn-booking">Book</a>
                     </div>
                 <?php } else if ($info->ownerId == $id && $info->status == 'approve') {  ?>
-                    <a href="#!" data-id="<?= $info->id ?>" class="btn btn-primary btn-md btn-info">info</a>
+                    <a href="#!" data-sid="<?= $info->sid ?>" class="btn btn-primary btn-md btn-sitter-info" data-toggle="modal" data-target="#modal-default">info</a>
                     <a href="#!" class="btn btn-secondary btn-md">Requested</a>
                 <?php } else { ?>
-                    <a href="#!" data-id="<?= $info->id ?>" class="btn btn-primary btn-md btn-info">info</a>
+                    <a href="#!" data-sid="<?= $info->sid ?>" class="btn btn-primary btn-md btn-sitter-info" data-toggle="modal" data-target="#modal-default">info</a>
                     <a href="#!" class="btn btn-success btn-md">Accepted</a>
                 <?php } ?>
             </div>
         </div>
     <?php endwhile; ?>
-
+    <div class="modal fade" id="modal-default">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pet Sitter Info</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <h5 class="name">Name: <span></span></h5>
+                    <h5 class="email">Email: <span></span></h5>
+                    <h5 class="contact">Contact: <span></span></h5>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
     <script>
         $(document).ready(function() {
             $('.btn-booking').on('click', function(e) {
@@ -69,18 +91,22 @@ if (isset($_POST['pName'])) {
                     }
                 })
             });
+
             $('.btn-sitter-info').on('click', function(e) {
                 e.preventDefault();
-                let id = $(this).data('id');
+                let getSitterInfo = $(this).data('sid');
                 $.ajax({
                     url: '<?= site_url ?>forms/ajax/requests.php',
                     method: 'post',
                     data: {
-                        get_sitter_info: id
+                        getSitterInfo: getSitterInfo
                     },
-                    success: function(res) {
+                    success: function(response) {
+                        let res = JSON.parse(response);
+                        $('.modal-body h5.name span').html(res.username);
+                        $('.modal-body h5.email span').html(res.email);
+                        $('.modal-body h5.contact span').html(res.contact);
                         console.log(res);
-                        // $('.btn-booking').html('Requested').removeClass('btn-primary').addClass('btn-secondary');
                     }
                 })
             });
