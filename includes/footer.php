@@ -76,7 +76,7 @@ $(document).ready(function(){
       "autoWidth": false,
       "responsive": true,
       "columnDefs": [
-    { "width": "35%", "targets": 2 }
+    { "width": "25%", "targets": 2 }
     ]
     });
     

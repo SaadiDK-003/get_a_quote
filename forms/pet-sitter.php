@@ -58,8 +58,8 @@ if (!is_loggedin()) {
                                         </select>
                                     </div>
                                     <div class="form-group col-lg-6 col-sm-12">
-                                        <label for="charges">Charges per Day<span class="text-danger">*</span></label>
-                                        <input type="text" name="charges" class="form-control" id="charges" placeholder="Eg. $20" required>
+                                        <label for="charges">Charges per Day ($)<span class="text-danger">*</span></label>
+                                        <input type="text" name="charges" class="form-control" id="charges" placeholder="Eg. 5,10,20" required>
                                     </div>
                                     <div class="form-group col-lg-12 col-md-12">
                                         <label for="services_offer">Services offer <span class="text-danger">*</span></label>
@@ -100,9 +100,13 @@ if (!is_loggedin()) {
                             <table id="example2" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
+                                        <th>Service Holder</th>
                                         <th>Pet Name</th>
-                                        <th>Charges per Day</th>
                                         <th>Services Offer</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Charges per Day</th>
+                                        <th>Total Charges</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -113,9 +117,13 @@ if (!is_loggedin()) {
                                     while ($row = mysqli_fetch_object($getData)) {
                                     ?>
                                         <tr>
+                                            <td><?=$row->u?></td>
                                             <td><?= $row->petName ?></td>
-                                            <td><?= $row->charges ?></td>
                                             <td><?= $row->services ?></td>
+                                            <td><?= $row->startDate ?></td>
+                                            <td><?= $row->endDate ?></td>
+                                            <td>$<?= $row->charges ?></td>
+                                            <td><span class="font-weight-bold">For <?= $row->days ?> days:</span> $<?= ($row->days * $row->charges) ?></td>
                                             <td><span class="<?= ($row->status == 'approve' || $row->status == 'active') ? 'btn btn-success' : 'btn btn-warning' ?>"><?= $row->status ?></span></td>
                                             <td>
                                                 <?php if ($row->status == 'pending') { ?>
@@ -129,9 +137,13 @@ if (!is_loggedin()) {
                                 </tbody>
                                 <tfoot>
                                     <tr>
+                                        <th>Service Holder</th>
                                         <th>Pet Name</th>
-                                        <th>Charges per Day</th>
                                         <th>Services Offer</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Charges per Day</th>
+                                        <th>Total Charges</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>

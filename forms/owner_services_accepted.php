@@ -70,7 +70,7 @@ check_end_date($db);
                                             <td><?= $row->startDate ?></td>
                                             <td><?= $row->endDate ?></td>
                                             <td>$<?= $row->charges ?></td>
-                                            <td>$<?=($row->days * $row->charges)?></td>
+                                            <td><span class="font-weight-bold">For <?= $row->days ?> days:</span> $<?= ($row->days * $row->charges) ?></td>
                                             <td><span class="btn <?=($row->status == 'active') ? 'btn-success' : 'btn-danger' ?>"><?= $row->status ?></span></td>
                                         </tr>
                                     <?php } ?>
