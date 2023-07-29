@@ -145,4 +145,11 @@ if (isset($_POST['edit_sitter_info'])) {
     echo $edit_sitter;
 }
 
+if (isset($_POST['getSitterInfo'])) {
+    $getSitterInfo = $_POST['getSitterInfo'];
+    $sql = $db->query("SELECT * FROM `users` WHERE `id`='$getSitterInfo'");
+    $fetchSitterInfo = mysqli_fetch_object($sql);
+    echo json_encode($fetchSitterInfo);
+}
+
 ?>

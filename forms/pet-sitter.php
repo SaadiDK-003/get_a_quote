@@ -117,13 +117,21 @@ if (!is_loggedin()) {
                                     while ($row = mysqli_fetch_object($getData)) {
                                     ?>
                                         <tr>
-                                            <td><?=$row->u?></td>
+                                            <td><?= $row->u ?></td>
                                             <td><?= $row->petName ?></td>
                                             <td><?= $row->services ?></td>
-                                            <td><?= $row->startDate ?></td>
-                                            <td><?= $row->endDate ?></td>
+                                            <td><?= (empty($row->startDate)) ? '-' : $row->startDate ?></td>
+                                            <td><?= (empty($row->endDate)) ? '-' : $row->endDate ?></td>
                                             <td>$<?= $row->charges ?></td>
-                                            <td><span class="font-weight-bold">For <?= $row->days ?> days:</span> $<?= ($row->days * $row->charges) ?></td>
+                                            <td>
+
+                                                <?php if (!empty($row->startDate)) : ?>
+                                                    <span class="font-weight-bold">For <?= $row->days ?> days:</span> $<?= ($row->days * $row->charges) ?>
+                                                <?php else : ?>
+                                                    $0
+                                                <?php endif; ?>
+
+                                            </td>
                                             <td><span class="<?= ($row->status == 'approve' || $row->status == 'active') ? 'btn btn-success' : 'btn btn-warning' ?>"><?= $row->status ?></span></td>
                                             <td>
                                                 <?php if ($row->status == 'pending') { ?>
