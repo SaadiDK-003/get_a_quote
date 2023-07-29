@@ -117,7 +117,7 @@ if (!is_loggedin()) {
                                     while ($row = mysqli_fetch_object($getData)) {
                                     ?>
                                         <tr>
-                                            <td><?= $row->u ?></td>
+                                            <td><?= (empty($row->startDate)) ? '-' : $row->u ?></td>
                                             <td><?= $row->petName ?></td>
                                             <td><?= $row->services ?></td>
                                             <td><?= (empty($row->startDate)) ? '-' : $row->startDate ?></td>

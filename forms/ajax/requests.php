@@ -88,6 +88,9 @@ if (isset($_POST['pName'])) {
                     success: function(res) {
                         console.log(res);
                         $('.btn-booking').html('Requested').removeClass('btn-primary').addClass('btn-secondary');
+                        setTimeout(() => {
+                            window.location.href = "";
+                        }, 1800);
                     }
                 })
             });

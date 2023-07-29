@@ -71,7 +71,7 @@ if (!is_loggedin()) {
                                                 btn-success
                                             <?php } ?>
                                             "><?= $row->status ?></span></td>
-                                                <?php if ($row->status != 'active') : ?>
+                                                <?php if ($row->status != 'active' && $row->status != 'approve') : ?>
                                                     <td><a data-id="<?= $row->pID ?>" class="btn btn-success btn-sm btn-approve">Approve</a> <!--| 
                                                     <a data-id="< ?= $row->pID ?>" class="btn btn-sm btn-warning btn-rej">Rejected</a> -->
                                                         |
@@ -317,7 +317,7 @@ if (!is_loggedin()) {
                                         while ($row = mysqli_fetch_object($getData)) {
                                         ?>
                                             <tr>
-                                                <td><?= $row->u ?></td>
+                                                <td><?= ($row->oID == 0) ? '-' : $row->u ?></td>
                                                 <td><?= $row->petName ?></td>
                                                 <td><?= $row->services ?></td>
                                                 <td><?= (empty($row->startDate)) ? '-' : $row->startDate ?></td>
@@ -332,7 +332,7 @@ if (!is_loggedin()) {
                                                     <?php endif; ?>
 
                                                 </td>
-                                                <td><span class="<?= ($row->status == 'approve' || $row->status == 'active') ? 'btn btn-success' : 'btn btn-warning' ?>"><?= $row->status ?></span></td>
+                                                <td><span class="<?= ($row->status == 'approve' || $row->status == 'active') ? 'btn btn-success' : 'btn btn-warning' ?>"><?= (empty($row->startDate) && $row->oID != 0) ? 'requested' : $row->status ?></span></td>
                                                 <td>
                                                     <?php if ($row->status == 'pending') { ?>
                                                         <a data-id="<?= $row->pID ?>" class="btn btn-info btn-edit">Edit</a> | <a data-id="<?= $row->pID ?>" class="btn btn-danger btn-delete">Remove</a>

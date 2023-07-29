@@ -68,8 +68,8 @@ if (!is_loggedin()) {
                                                 btn-success
                                             <?php } ?>
                                             "><?= $row->status ?></span></td>
-                                            <?php if ($row->status != 'active') : ?>
-                                                <td><a data-id="<?= $row->pID ?>" class="btn btn-success btn-sm btn-approve">Approve</a> | <a data-id="<?= $row->pID ?>" class="btn btn-sm btn-warning btn-rej">Rejected</a> | <a data-id="<?= $row->pID ?>" class="btn btn-sm btn-danger btn-delete">Remove</a></td>
+                                            <?php if ($row->status != 'active' && $row->status != 'approve') : ?>
+                                                <td><a data-id="<?= $row->pID ?>" class="btn btn-success btn-sm btn-approve">Approve</a> <!--| <a data-id="< ?= $row->pID ?>" class="btn btn-sm btn-warning btn-rej">Rejected</a>--> | <a data-id="<?= $row->pID ?>" class="btn btn-sm btn-danger btn-delete">Remove</a></td>
                                             <?php else : ?>
                                                 <td>-</td>
                                             <?php endif; ?>

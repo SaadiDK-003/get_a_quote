@@ -105,7 +105,7 @@ if (!is_loggedin()) {
                 data:{acceptReq:id,days:days},
                 success:function(res){
                     // console.log(res);
-                    setTimeout(function(){location.reload()},1800);
+                    setTimeout(function(){window.location.href = "<?=site_url?>"},1800);
                 }
             })
         });
