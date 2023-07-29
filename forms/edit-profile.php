@@ -9,37 +9,48 @@ if (!is_loggedin()) {
             include_once '../includes/aside.php';
 
 
-$msg = '';
-$msgStatus = 0;
-if (isset($_POST['submit'])) {
-    $username           = $_POST['username'];
-    $email              = $_POST['email'];
-    $contact            = $_POST['contact'];
-    $dob                = $_POST['dob'];
-    $addr               = $_POST['address'];
-    $city               = $_POST['city'];
-    $state              = $_POST['state'];
-    $zip                = $_POST['zip'];
+            $msg = '';
+            $msgStatus = 0;
+            if (isset($_POST['submit'])) {
+                $username           = $_POST['username'];
+                $email              = $_POST['email'];
+                $pwd                = $_POST['password'];
+                $contact            = $_POST['contact'];
+                $dob                = $_POST['dob'];
+                $addr               = $_POST['address'];
+                $city               = $_POST['city'];
+                $state              = $_POST['state'];
+                $zip                = $_POST['zip'];
 
-    $dbUsers = $db->query("SELECT * FROM `users` WHERE `username`='$username'");
+                $dbUsers = $db->query("SELECT * FROM `users` WHERE `username`='$username'");
 
-    if (empty($username) || empty($email) || empty($contact) || empty($dob) || empty($addr) || empty($city) || empty($state) || empty($zip)) {
-        $msg .= 'All fields are required!';
-        $msgStatus = 0;
-    } else if (mysqli_num_rows($dbUsers) > 1) {
-        $msg = 'username already exists';
-    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $msg .= 'Email Should be valid';
-        $msgStatus = 0;
-    } else {
-        $sql = $db->query("UPDATE `users` SET `username`='$username',`email`='$email',`contact`='$contact',`dob`='$dob',`address`='$addr',`city`='$city',`state`='$state',`zip`='$zip' WHERE `id`='$id'");
-        if ($sql) {
-            $msg = 'Successfully Updated.';
-            $msgStatus = 1;
-            echo '<script>setTimeout(function(){window.location.href=""},2800)</script>';
-        }
-    }
-}
+                if (empty($username) || empty($email) || empty($contact) || empty($dob) || empty($addr) || empty($city) || empty($state) || empty($zip)) {
+                    $msg .= 'All fields are required!';
+                    $msgStatus = 0;
+                } else if (mysqli_num_rows($dbUsers) > 1) {
+                    $msg = 'username already exists';
+                } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $msg .= 'Email Should be valid';
+                    $msgStatus = 0;
+                } else {
+                    if (!empty($pwd)) {
+                        $pwd = md5($pwd);
+                        $sql = $db->query("UPDATE `users` SET `username`='$username',`email`='$email',`password`='$pwd',`contact`='$contact',`dob`='$dob',`address`='$addr',`city`='$city',`state`='$state',`zip`='$zip' WHERE `id`='$id'");
+                        if ($sql) {
+                            $msg = 'Successfully Updated.';
+                            $msgStatus = 1;
+                            echo '<script>setTimeout(function(){window.location.href=""},2800)</script>';
+                        }
+                    } else {
+                        $sql = $db->query("UPDATE `users` SET `username`='$username',`email`='$email',`contact`='$contact',`dob`='$dob',`address`='$addr',`city`='$city',`state`='$state',`zip`='$zip' WHERE `id`='$id'");
+                        if ($sql) {
+                            $msg = 'Successfully Updated.';
+                            $msgStatus = 1;
+                            echo '<script>setTimeout(function(){window.location.href=""},2800)</script>';
+                        }
+                    }
+                }
+            }
                 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -73,7 +84,7 @@ if (isset($_POST['submit'])) {
                     <div class="card card-secondary">
                         <div class="card-header">
                             <h3 class="card-title msg">
-                                <?=$msg?>
+                                <?= $msg ?>
                                 <!-- If you need clarification while filling this form then please email us at <strong class="text-warning">support@octoinsurance.com</strong> or call us at <strong class="text-warning">469-898-8348</strong> -->
                             </h3>
                         </div>
@@ -90,6 +101,10 @@ if (isset($_POST['submit'])) {
                                     <div class="form-group col-lg-4 col-sm-12">
                                         <label for="email">Email</label>
                                         <input type="email" class="form-control" name="email" id="email" value="<?= (isset($_POST['email']) ? $_POST['email'] : $data->email) ?>" required>
+                                    </div>
+                                    <div class="form-group col-lg-4 col-sm-12">
+                                        <label for="password">Password <i class="text-danger">leave empty if don't wanna change</i></label>
+                                        <input type="password" class="form-control" name="password" id="password">
                                     </div>
                                     <div class="form-group col-lg-4 col-md-12">
                                         <label for="contact">Phone</label>
@@ -211,7 +226,7 @@ if (isset($_POST['submit'])) {
                                                 Wyoming </option>
                                         </select>
                                     </div>
-                                    <div class="form-group col-lg-8 col-md-12">
+                                    <div class="form-group col-lg-4 col-md-12">
                                         <label for="address">Address</label>
                                         <input type="text" class="form-control" name="address" value="<?= (isset($_POST['address']) ? $_POST['address'] : $data->address) ?>" id="address" required>
                                     </div>
