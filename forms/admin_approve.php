@@ -46,7 +46,7 @@ if (!is_loggedin()) {
                                         <th>Sitter Name</th>
                                         <th>Pet Name</th>
                                         <th>Services Offer</th>
-                                        <th>Charges per Day</th>
+                                        <th>Charges per Hour</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -84,7 +84,7 @@ if (!is_loggedin()) {
                                         <th>Sitter Name</th>
                                         <th>Pet Name</th>
                                         <th>Services Offer</th>
-                                        <th>Charges per Day</th>
+                                        <th>Charges per Hour</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -125,8 +125,8 @@ if (!is_loggedin()) {
                                         <th>Services Offer</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
-                                        <th>Charges per Day</th>
-                                        <th>Total Charges</th>
+                                        <th>Charges per Hour</th>
+                                        <th>Total Days</th>
                                         <th>Pet Sitter</th>
                                         <th>Status</th>
                                     </tr>
@@ -146,7 +146,9 @@ if (!is_loggedin()) {
                                             <td>
 
                                                 <?php if (!empty($row->startDate)) : ?>
-                                                    <span class="font-weight-bold">For <?= $row->days ?> days:</span> $<?= ($row->days * $row->charges) ?>
+                                                    <span class="font-weight-bold">For 
+                                                        <!-- < ?= $row->days ?> days:</span> $< ?= ($row->days * $row->charges) ?> -->
+                                                        <?= $row->days . ($row->days == '1' ? ' Day' : ' Days') ?> </span>
                                                 <?php else : ?>
                                                     $0
                                                 <?php endif; ?>
@@ -172,8 +174,8 @@ if (!is_loggedin()) {
                                         <th>Services Offer</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
-                                        <th>Charges per Day</th>
-                                        <th>Total Charges</th>
+                                        <th>Charges per Hour</th>
+                                        <th>Total Days</th>
                                         <th>Pet Sitter</th>
                                         <th>Status</th>
                                     </tr>

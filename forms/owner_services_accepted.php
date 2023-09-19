@@ -54,7 +54,7 @@ check_end_date($db);
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Charges per Day</th>
-                                        <th>Total Charges</th>
+                                        <th>Total Days</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -70,7 +70,10 @@ check_end_date($db);
                                             <td><?= $row->startDate ?></td>
                                             <td><?= $row->endDate ?></td>
                                             <td>$<?= $row->charges ?></td>
-                                            <td><span class="font-weight-bold">For <?= $row->days ?> days:</span> $<?= ($row->days * $row->charges) ?></td>
+                                            <td><span class="font-weight-bold">For 
+                                                <!-- < ?= $row->days ?> days:</span> $< ?= ($row->days * $row->charges) ?> -->
+                                                <?= $row->days . ($row->days == '1' ? ' Day' : ' Days') ?> </span>
+                                            </td>
                                             <td><span class="btn <?=($row->status == 'active') ? 'btn-success' : 'btn-danger' ?>"><?= $row->status ?></span></td>
                                         </tr>
                                     <?php } ?>
@@ -83,7 +86,7 @@ check_end_date($db);
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Charges per Day</th>
-                                        <th>Total Charges</th>
+                                        <th>Total Days</th>
                                         <th>Status</th>
                                     </tr>
                                 </tfoot>
