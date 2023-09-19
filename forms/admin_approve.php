@@ -150,7 +150,7 @@ if (!is_loggedin()) {
                                                         <!-- < ?= $row->days ?> days:</span> $< ?= ($row->days * $row->charges) ?> -->
                                                         <?= $row->days . ($row->days == '1' ? ' Day' : ' Days') ?> </span>
                                                 <?php else : ?>
-                                                    $0
+                                                    ---
                                                 <?php endif; ?>
 
                                             </td>
